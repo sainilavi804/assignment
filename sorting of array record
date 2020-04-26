@@ -1,0 +1,123 @@
+package arrays;
+import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+class CarRecord{
+String make;
+String model;
+String year;
+String lpno;
+public CarRecord(String make,String model,String year2,String lpno){
+	this.make=make;
+	this.model=model;
+	this.year = year2;
+	this.lpno= lpno;
+}
+private static void Reader(String filename) {
+	
+	try {
+	FileReader fr =new FileReader(filename);
+	BufferedReader br = new BufferedReader(fr);
+	String line; ;
+	while((line=br.readLine())!=null) {
+		System.out.println(line);
+	}
+}
+	catch(Exception e) {
+	System.out.println(e);
+}
+}
+public static void main(String[] args) throws Exception{
+	FileReader fr = new FileReader(Ycaroutput.txt);
+	BufferedReader br = new BufferedReader(fr);READING FILE
+	Scanner in =new Scanner(System.in);
+	int mn=1;
+	while(mn!=0) {
+	System.out.println(Enter Choice);
+	System.out.println(1.Load Data from Text file);
+	System.out.println(2.Insert Data);
+	System.out.println(3.Sort);
+	System.out.println(4.Quit);
+	int choice = in.nextInt();
+	switch(choice){
+	case 1
+		System.out.println(Enter the  path of the file);
+		String path=in.next();
+		File folder=new File(path);
+		{if(folder.isDirectory()) {
+			File[] listoffiles=folder.listFiles();
+			if(listoffiles.length1)System.out.println(there is no file);
+			else
+				System.out.println(list of files &folder are);
+			for(File filelistoffiles) {
+				if(file.isFile())
+					System.out.println(file.getCanonicalPath().toString());
+			}}
+		else
+			System.out.println(there is no folder);
+		}
+		System.out.println(enter the file name to loadwith extension );
+		String name=in.next();
+		String fname=path.concat(name);
+		System.out.println(fname);
+		CarRecord.Reader(fname);
+		
+		break;
+	case 2
+		System.out.println(Number of Entry to insert);
+		int n=in.nextInt();
+		for(int i=n;i0;i--) {		
+		System.out.println(Enter Make);
+		String make=in.next();
+		System.out.println(Enter Model);
+		String model=in.next();
+		System.out.println(Enter year);
+		String year = in.next();
+		System.out.println(Enter license plate number);
+		String lpno = in.next();
+		CarRecord car =new CarRecord(make , model, year,lpno);
+		ArrayListCarRecord al = new ArrayListCarRecord();
+		al.add(car);
+		for(Object objal) {
+			System.out.println(year +year+Make = +make+ +model+ +  +lpno);
+			
+		}
+		File f = new File(Ycaroutput.txt);
+		if(f.exists() && !f.isDirectory()) { 
+			FileWriter writer = new FileWriter(Ycaroutput.txt,true); 
+			for(CarRecord stral ) {
+			  writer.write(year+  ++make+ +model+ +lpno + System.lineSeparator());
+			}
+			writer.close();
+		}}
+		break;
+	case 3
+		System.out.println(Sorting in Alphabetical Ordernn);
+		try {
+			FileReader fr =new FileReader(Ycaroutput.txt);
+			BufferedReader br = new BufferedReader(fr);
+			String line; 
+			ArrayListString al=new ArrayList();
+			while((line=br.readLine())!=null) {
+				al.add(line);
+			}
+			Collections.sort(al);
+			for(Object objal)
+				System.out.println(obj);
+			br.close();
+		}
+			catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		break;
+	case 4
+		break;
+}
+}
+}	
+}
